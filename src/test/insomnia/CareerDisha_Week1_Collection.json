@@ -1,0 +1,100 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-09-08T14:14:08.000Z",
+  "__export_source": "gemini-for-career-disha",
+  "resources": [
+    {
+      "_id": "wrk_careerdisha_1",
+      "parentId": null,
+      "modified": 1668733200000,
+      "created": 1668733100000,
+      "name": "CareerDisha Backend Week1",
+      "description": "API tests for Week 1 (Auth & Profile)",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "fld_auth_1",
+      "parentId": "wrk_careerdisha_1",
+      "modified": 1668733300000,
+      "created": 1668733250000,
+      "name": "Auth APIs",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1668733250000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_register_1",
+      "parentId": "fld_auth_1",
+      "modified": 1668733400000,
+      "created": 1668733350000,
+      "url": "http://localhost:3000/api/v1/auth/register",
+      "name": "Register User",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"test@example.com\",\n\t\"password\": \"password123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -100,
+      "_type": "request"
+    },
+    {
+      "_id": "req_login_1",
+      "parentId": "fld_auth_1",
+      "modified": 1668733500000,
+      "created": 1668733450000,
+      "url": "http://localhost:3000/api/v1/auth/login",
+      "name": "Login User",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"test@example.com\",\n\t\"password\": \"password123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": 0,
+      "_type": "request"
+    },
+    {
+      "_id": "req_profile_1",
+      "parentId": "fld_auth_1",
+      "modified": 1668733600000,
+      "created": 1668733550000,
+      "url": "http://localhost:3000/api/v1/auth/profile",
+      "name": "Get Profile",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer <your-token-here>",
+          "description": "Copy the token from Login response and paste here"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": 100,
+      "_type": "request"
+    }
+  ]
+}
