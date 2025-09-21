@@ -334,3 +334,27 @@
   level: 'http',
   message: 'API Request'
 }
+{
+  method: 'POST',
+  url: '/api/v1/auth/login',
+  ip: '::1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0',
+  userId: undefined,
+  statusCode: 500,
+  duration: 4186,
+  timestamp: '2025-09-21 16:59:22',
+  level: 'http',
+  message: 'API Request'
+}
+{
+  method: 'POST',
+  url: '/api/v1/auth/register',
+  ip: '::1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0',
+  userId: undefined,
+  statusCode: 500,
+  duration: 4225,
+  timestamp: '2025-09-21 17:00:26',
+  level: 'http',
+  message: 'API Request'
+}

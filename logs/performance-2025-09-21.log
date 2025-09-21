@@ -1478,3 +1478,91 @@
   level: 'info',
   message: 'Performance Metric'
 }
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 300006,
+  memory: {
+    rss: 88444928,
+    heapUsed: 35893296,
+    heapTotal: 37715968,
+    external: 3653221,
+    system: {
+      total: 16794984448,
+      free: 2350145536,
+      used: 14444838912,
+      usage: 0.8600686089780891
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 1390000, system: 765000 } },
+  process: { pid: 11604, version: 'v22.17.1', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 16:49:41',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 600016,
+  memory: {
+    rss: 89083904,
+    heapUsed: 35704104,
+    heapTotal: 39550976,
+    external: 3661413,
+    system: {
+      total: 16794984448,
+      free: 2539589632,
+      used: 14255394816,
+      usage: 0.8487888071666287
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 1468000, system: 765000 } },
+  process: { pid: 11604, version: 'v22.17.1', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 16:54:41',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'resource_intensive_request',
+  value: 4222.7103,
+  path: '/login',
+  method: 'POST',
+  memoryDelta: { rss: 2785280, heapUsed: 354400, heapTotal: 1728512 },
+  statusCode: 500,
+  timestamp: '2025-09-21 16:59:22',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'resource_intensive_request',
+  value: 4238.0564,
+  path: '/register',
+  method: 'POST',
+  memoryDelta: { rss: 790528, heapUsed: -103200, heapTotal: -524288 },
+  statusCode: 500,
+  timestamp: '2025-09-21 17:00:26',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 300014,
+  memory: {
+    rss: 92749824,
+    heapUsed: 36491912,
+    heapTotal: 39182336,
+    external: 3645117,
+    system: {
+      total: 16794984448,
+      free: 3298672640,
+      used: 13496311808,
+      usage: 0.8035918014563678
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 1812000, system: 687000 } },
+  process: { pid: 12076, version: 'v22.17.1', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 17:01:24',
+  level: 'info',
+  message: 'Performance Metric'
+}

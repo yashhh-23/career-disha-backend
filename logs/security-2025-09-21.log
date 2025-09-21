@@ -30,3 +30,11 @@
   timestamp: '2025-09-21 16:34:28',
   level: 'error'
 }
+{
+  event: 'ALERT_TRIGGERED',
+  alertType: 'HIGH_RESPONSE_TIME',
+  message: 'Security Event Response time 4186ms exceeded threshold 2000ms',
+  severity: 'high',
+  timestamp: '2025-09-21 16:59:22',
+  level: 'error'
+}
