@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const prisma = require('../config/prisma');
+const { User, UserProfile } = require('../models');
 // CHANGE 1: Import the central middleware from the correct file.
 const authenticateToken = require('../middlewares/auth');
 const { validationRules, handleValidationErrors } = require('../middlewares/security');
@@ -79,7 +79,7 @@ router.post('/register', [
       return res.status(400).json({ error: 'Email and password are required.' });
     }
 
-    const existingUser = await prisma.user.findUnique({ where: { email } });
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(409).json({ error: 'User with this email already exists.' });
     }
@@ -87,25 +87,31 @@ router.post('/register', [
     const salt = await bcrypt.genSalt(10);
     const passwordHash = await bcrypt.hash(password, salt);
 
-    // Creates the user and their default profile in one transaction
-    const newUser = await prisma.user.create({
-      data: {
-        email,
-        name: name && String(name).trim().length > 0 ? String(name).trim() : String(email).split('@')[0],
-        passwordHash,
-        // Create a minimal UserProfile (schema: UserProfile) with optional fields
-        profile: {
-          create: {
-            bio: 'Welcome to your CareerDisha profile!',
-          },
-        },
-      },
+    // Create the user
+    const newUser = new User({
+      email,
+      name: name && String(name).trim().length > 0 ? String(name).trim() : String(email).split('@')[0],
+      passwordHash
     });
+
+    await newUser.save();
+
+    // Create the default profile
+    const newProfile = new UserProfile({
+      userId: newUser._id,
+      bio: 'Welcome to your CareerDisha profile!'
+    });
+
+    await newProfile.save();
+
+    // Update user with profile reference
+    newUser.profile = newProfile._id;
+    await newUser.save();
 
     res.status(201).json({
       message: 'User created successfully',
       user: {
-        id: newUser.id,
+        id: newUser._id,
         email: newUser.email,
       },
     });
@@ -185,7 +191,7 @@ router.post('/login', [
       return res.status(400).json({ error: 'Email and password are required.' });
     }
 
-    const user = await prisma.user.findUnique({ where: { email } });
+    const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({ error: 'Invalid credentials.' });
     }
@@ -196,7 +202,7 @@ router.post('/login', [
     }
 
     const token = jwt.sign(
-      { userId: user.id, email: user.email },
+      { userId: user._id, email: user.email },
       process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
@@ -245,10 +251,9 @@ router.post('/login', [
 router.get('/profile', authenticateToken, async (req, res) => {
   try {
     // Note: The payload from your central middleware uses `req.user.id`
-    const user = await prisma.user.findUnique({
-      where: { id: req.user.id },
-      select: { id: true, email: true, createdAt: true, profile: true }, // Also fetch the profile
-    });
+    const user = await User.findById(req.user.id)
+      .select('email createdAt profile')
+      .populate('profile');
 
     if (!user) return res.status(404).json({ error: 'User not found' });
 

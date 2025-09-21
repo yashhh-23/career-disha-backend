@@ -1,24 +1,23 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator');
-const prisma = require('../config/prisma');
+const { UserProfile, User } = require('../models');
 
 const router = express.Router();
 
 // GET /api/v1/profile
 router.get('/', async (req, res) => {
   try {
-    let profile = await prisma.userProfile.findUnique({ where: { userId: req.user.id } });
+    let profile = await UserProfile.findOne({ userId: req.user.id });
 
     if (!profile) {
-      profile = await prisma.userProfile.create({
-        data: {
-          userId: req.user.id,
-          bio: 'Welcome to your CareerDisha profile!',
-          skills: [],
-          interests: [],
-          preferredLanguages: []
-        }
+      profile = new UserProfile({
+        userId: req.user.id,
+        bio: 'Welcome to your CareerDisha profile!',
+        skills: [],
+        interests: [],
+        preferredLanguages: []
       });
+      await profile.save();
     }
 
     // Normalize response to include legacy keys for backward compatibility
@@ -80,24 +79,20 @@ router.put(
       : (Array.isArray(languages) ? languages : []);
     const finalBio = typeof bio === 'string' && bio.length > 0 ? bio : summary;
 
-    const upserted = await prisma.userProfile.upsert({
-      where: { userId: req.user.id },
-      update: {
+    const upserted = await UserProfile.findOneAndUpdate(
+      { userId: req.user.id },
+      {
         bio: finalBio,
         skills: finalSkills,
         interests: mergedInterests,
         preferredLanguages: finalLanguages,
         careerGoals: careerGoals || undefined
       },
-      create: {
-        userId: req.user.id,
-        bio: finalBio,
-        skills: finalSkills,
-        interests: mergedInterests,
-        preferredLanguages: finalLanguages,
-        careerGoals: careerGoals || undefined
+      {
+        upsert: true,
+        new: true
       }
-    });
+    );
 
     res.json({
       userId: upserted.userId,
@@ -125,24 +120,9 @@ router.get('/:id', async (req, res) => {
       return res.status(400).json({ error: 'Invalid user ID' });
     }
 
-    const user = await prisma.user.findUnique({
-      where: { id: userId },
-      select: {
-        id: true,
-        email: true,
-        createdAt: true,
-        profile: {
-          select: {
-            bio: true,
-            skills: true,
-            interests: true,
-            preferredLanguages: true,
-            careerGoals: true,
-            updatedAt: true
-          }
-        }
-      }
-    });
+    const user = await User.findById(userId)
+      .select('email createdAt')
+      .populate('profile', 'bio skills interests preferredLanguages careerGoals updatedAt');
 
     if (!user) {
       return res.status(404).json({ error: 'User not found' });

@@ -1,4 +1,4 @@
-const prisma = require('../config/prisma');
+const { User } = require('../models');
 
 /**
  * Role-based authorization middleware
@@ -16,14 +16,8 @@ function requireRole(allowedRoles = []) {
       }
 
       // Get user with role information
-      const user = await prisma.user.findUnique({
-        where: { id: req.user.id },
-        select: { 
-          id: true, 
-          email: true, 
-          role: true 
-        }
-      });
+      const user = await User.findById(req.user.id)
+        .select('email role');
 
       if (!user) {
         return res.status(401).json({ 
@@ -129,15 +123,13 @@ function requireResourceAccess(userIdParam = 'userId') {
  */
 async function getUserRole(userId) {
   try {
-    const user = await prisma.user.findUnique({
-      where: { id: userId },
-      select: { role: true }
-    });
+    const user = await User.findById(userId)
+      .select('role');
     
-    return user?.role || 'student';
+    return user?.role || 'STUDENT';
   } catch (error) {
     console.error('Error getting user role:', error);
-    return 'student'; // Default fallback
+    return 'STUDENT'; // Default fallback
   }
 }
 

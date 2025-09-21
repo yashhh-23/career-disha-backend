@@ -1,5 +1,6 @@
 const express = require('express');
-const prisma = require('../config/prisma');
+// TODO: Create Progress model for MongoDB
+// const { Progress } = require('../models');
 const { requireResourceAccess } = require('../middlewares/roleAuth');
 
 const router = express.Router();

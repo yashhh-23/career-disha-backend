@@ -2,6 +2,10 @@ const express = require('express');
 // In serverless mode we don't create an HTTP server; Cloud Functions handles it
 require('dotenv').config();
 
+// Initialize MongoDB connection
+const { connectDB } = require('./config/mongoose');
+connectDB();
+
 // Security imports
 const { 
   helmet, 
@@ -176,9 +180,8 @@ app.get('/api/docs.json', (req, res) => {
 app.get('/api/health/deps', async (req, res) => {
   const status = { db: false, ai: false };
   try {
-    const prisma = require('./config/prisma');
-    await prisma.$queryRaw`SELECT 1`;
-    status.db = true;
+    const mongoose = require('mongoose');
+    status.db = mongoose.connection.readyState === 1;
   } catch (_) {}
   try {
     const aiService = require('./services/aiService');

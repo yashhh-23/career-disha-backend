@@ -1,5 +1,5 @@
 const express = require('express');
-const prisma = require('../config/prisma');
+const { Course, Lesson, Category } = require('../models');
 
 const router = express.Router();
 
@@ -9,23 +9,19 @@ router.get('/', async (req, res) => {
     const { category, limit = 10, offset = 0 } = req.query;
     
     const whereClause = category ? { 
-      content: { contains: category, mode: 'insensitive' } 
+      description: { $regex: category, $options: 'i' } 
     } : {};
 
-    const lessons = await prisma.lesson.findMany({
-      where: whereClause,
-      take: parseInt(limit),
-      skip: parseInt(offset),
-      orderBy: { id: 'asc' }
-    });
+    const lessons = await Lesson.find(whereClause)
+      .limit(parseInt(limit))
+      .skip(parseInt(offset))
+      .sort({ _id: 'asc' });
 
-    // Get user progress for these lessons
-    const userProgress = await prisma.userLesson.findMany({
-      where: {
-        userId: req.user.id,
-        lessonId: { in: lessons.map(l => l.id) }
-      }
-    });
+    // TODO: Get user progress for these lessons
+    // const userProgress = await UserLesson.find({
+    //   userId: req.user.id,
+    //   lessonId: { $in: lessons.map(l => l._id) }
+    // });
 
     // Merge lesson data with user progress
     const lessonsWithProgress = lessons.map(lesson => {
@@ -45,7 +41,7 @@ router.get('/', async (req, res) => {
       pagination: {
         limit: parseInt(limit),
         offset: parseInt(offset),
-        total: await prisma.lesson.count({ where: whereClause })
+        total: await Lesson.countDocuments(whereClause)
       }
     });
 
@@ -64,23 +60,17 @@ router.get('/:id', async (req, res) => {
       return res.status(400).json({ error: 'Invalid lesson ID' });
     }
 
-    const lesson = await prisma.lesson.findUnique({
-      where: { id: lessonId }
-    });
+    const lesson = await Lesson.findById(lessonId);
 
     if (!lesson) {
       return res.status(404).json({ error: 'Lesson not found' });
     }
 
-    // Get user progress for this lesson
-    const userProgress = await prisma.userLesson.findUnique({
-      where: {
-        userId_lessonId: {
-          userId: req.user.id,
-          lessonId: lessonId
-        }
-      }
-    });
+    // TODO: Get user progress for this lesson
+    // const userProgress = await UserLesson.findOne({
+    //   userId: req.user.id,
+    //   lessonId: lessonId
+    // });
 
     res.json({
       ...lesson,
@@ -107,50 +97,25 @@ router.post('/:id/start', async (req, res) => {
     }
 
     // Check if lesson exists
-    const lesson = await prisma.lesson.findUnique({
-      where: { id: lessonId }
-    });
+    const lesson = await Lesson.findById(lessonId);
 
     if (!lesson) {
       return res.status(404).json({ error: 'Lesson not found' });
     }
 
-    // Create or update user lesson record
-    const userLesson = await prisma.userLesson.upsert({
-      where: {
-        userId_lessonId: {
-          userId: req.user.id,
-          lessonId: lessonId
-        }
-      },
-      update: {}, // Don't update if already exists
-      create: {
-        userId: req.user.id,
-        lessonId: lessonId
-      }
-    });
+    // TODO: Create or update user lesson record
+    // const userLesson = await UserLesson.findOneAndUpdate(
+    //   { userId: req.user.id, lessonId: lessonId },
+    //   {},
+    //   { upsert: true, new: true }
+    // );
 
-    // Create or update progress record
-    await prisma.progress.upsert({
-      where: {
-        userId_type_referenceId: {
-          userId: req.user.id,
-          type: 'lesson',
-          referenceId: lessonId.toString()
-        }
-      },
-      update: {
-        status: 'in_progress',
-        progress: 0
-      },
-      create: {
-        userId: req.user.id,
-        type: 'lesson',
-        referenceId: lessonId.toString(),
-        status: 'in_progress',
-        progress: 0
-      }
-    });
+    // TODO: Create or update progress record
+    // await Progress.findOneAndUpdate(
+    //   { userId: req.user.id, type: 'lesson', referenceId: lessonId.toString() },
+    //   { status: 'in_progress', progress: 0 },
+    //   { upsert: true, new: true }
+    // );
 
     res.json({
       message: 'Lesson started successfully',
@@ -175,9 +140,7 @@ router.post('/:id/complete', async (req, res) => {
     }
 
     // Check if lesson exists
-    const lesson = await prisma.lesson.findUnique({
-      where: { id: lessonId }
-    });
+    const lesson = await Lesson.findById(lessonId);
 
     if (!lesson) {
       return res.status(404).json({ error: 'Lesson not found' });
@@ -186,49 +149,19 @@ router.post('/:id/complete', async (req, res) => {
     const quizPassed = quizScore >= 70; // 70% passing score
     const completedAt = new Date();
 
-    // Update user lesson record
-    await prisma.userLesson.upsert({
-      where: {
-        userId_lessonId: {
-          userId: req.user.id,
-          lessonId: lessonId
-        }
-      },
-      update: {
-        quizPassed: quizPassed,
-        completedAt: completedAt
-      },
-      create: {
-        userId: req.user.id,
-        lessonId: lessonId,
-        quizPassed: quizPassed,
-        completedAt: completedAt
-      }
-    });
+    // TODO: Update user lesson record
+    // await UserLesson.findOneAndUpdate(
+    //   { userId: req.user.id, lessonId: lessonId },
+    //   { quizPassed: quizPassed, completedAt: completedAt },
+    //   { upsert: true }
+    // );
 
-    // Update progress record
-    await prisma.progress.upsert({
-      where: {
-        userId_type_referenceId: {
-          userId: req.user.id,
-          type: 'lesson',
-          referenceId: lessonId.toString()
-        }
-      },
-      update: {
-        status: 'completed',
-        progress: 100,
-        metadata: { quizScore, quizPassed, completedAt }
-      },
-      create: {
-        userId: req.user.id,
-        type: 'lesson',
-        referenceId: lessonId.toString(),
-        status: 'completed',
-        progress: 100,
-        metadata: { quizScore, quizPassed, completedAt }
-      }
-    });
+    // TODO: Update progress record
+    // await Progress.findOneAndUpdate(
+    //   { userId: req.user.id, type: 'lesson', referenceId: lessonId.toString() },
+    //   { status: 'completed', progress: 100, metadata: { quizScore, quizPassed, completedAt } },
+    //   { upsert: true }
+    // );
 
     res.json({
       message: 'Lesson completed successfully',

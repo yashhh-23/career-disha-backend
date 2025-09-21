@@ -1,7 +1,7 @@
 // GCS-triggered Resume Worker (Cloud Function)
 const { Storage } = require('@google-cloud/storage');
 const path = require('path');
-const prisma = require('../config/prisma');
+const { UserProfile, FileUpload, Notification, Skill, UserSkill } = require('../models');
 const ocrService = require('../services/ocrService');
 const aiService = require('../services/aiService');
 
@@ -28,10 +28,7 @@ exports.handleResumeUpload = async (event) => {
 
     // Find corresponding upload record if any (latest by path)
     const gcsUri = `gs://${bucket}/${name}`;
-    const uploadRecord = await prisma.fileUpload.findFirst({
-      where: { path: gcsUri },
-      orderBy: { createdAt: 'desc' }
-    });
+    const uploadRecord = await FileUpload.findOne({ path: gcsUri }).sort({ createdAt: -1 });
 
     // Download file
     const buffer = await readGcsFileToBuffer(bucket, name);
@@ -43,13 +40,12 @@ exports.handleResumeUpload = async (event) => {
     fs.writeFileSync(tmpPath, buffer);
 
     // Get user profile for context
-    const userProfile = await prisma.userProfile.findUnique({ where: { userId } });
+    const userProfile = await UserProfile.findOne({ userId });
 
     // Update status to processing
     if (uploadRecord) {
-      await prisma.fileUpload.update({
-        where: { id: uploadRecord.id },
-        data: { metadata: { status: 'processing', processedAt: new Date().toISOString() } }
+      await FileUpload.findByIdAndUpdate(uploadRecord._id, {
+        $set: { 'metadata.status': 'processing', 'metadata.processedAt': new Date().toISOString() }
       });
     }
 
@@ -66,18 +62,15 @@ exports.handleResumeUpload = async (event) => {
     if (ocrResult.success) {
       // Update upload record with results
       if (uploadRecord) {
-        await prisma.fileUpload.update({
-          where: { id: uploadRecord.id },
-          data: {
-            metadata: {
-              status: 'completed',
-              extractedData: {
-                ...ocrResult.processedData,
-                normalized: normalized || undefined,
-                ocrConfidence: ocrResult.confidence,
-                extractedText: (ocrResult.extractedText || '').substring(0, 5000),
-                processedAt: new Date().toISOString()
-              }
+        await FileUpload.findByIdAndUpdate(uploadRecord._id, {
+          $set: {
+            'metadata.status': 'completed',
+            'metadata.extractedData': {
+              ...ocrResult.processedData,
+              normalized: normalized || undefined,
+              ocrConfidence: ocrResult.confidence,
+              extractedText: (ocrResult.extractedText || '').substring(0, 5000),
+              processedAt: new Date().toISOString()
             }
           }
         });
@@ -89,20 +82,17 @@ exports.handleResumeUpload = async (event) => {
       }
 
       // Create notification
-      await prisma.notification.create({
-        data: {
-          userId,
-          type: 'SYSTEM',
-          title: 'Resume processed',
-          message: 'Your resume has been analyzed successfully',
-          channels: ['IN_APP']
-        }
+      await Notification.create({
+        userId,
+        type: 'SYSTEM',
+        title: 'Resume processed',
+        message: 'Your resume has been analyzed successfully',
+        channels: ['IN_APP']
       });
     } else {
       if (uploadRecord) {
-        await prisma.fileUpload.update({
-          where: { id: uploadRecord.id },
-          data: { metadata: { status: 'failed', extractedData: { error: ocrResult.error, processedAt: new Date().toISOString() } } }
+        await FileUpload.findByIdAndUpdate(uploadRecord._id, {
+          $set: { 'metadata.status': 'failed', 'metadata.extractedData': { error: ocrResult.error, processedAt: new Date().toISOString() } }
         });
       }
     }
@@ -113,38 +103,35 @@ exports.handleResumeUpload = async (event) => {
 
 async function upsertSkillsFromResume(userId, processedData) {
   const { personalInfo, skills = [] } = processedData || {};
-  const existingProfile = await prisma.profile.findUnique({ where: { userId } });
+  const existingProfile = await UserProfile.findOne({ userId });
   const mergedSkills = [...new Set([...(skills || []), ...((existingProfile?.skills) || [])])];
 
-  await prisma.profile.upsert({
-    where: { userId },
-    update: {
-      summary: `Profile auto-updated from resume. ${personalInfo?.summary || ''}`,
-      skills: mergedSkills,
-      tags: mergedSkills.slice(0, 20)
+  await UserProfile.findOneAndUpdate(
+    { userId },
+    {
+      $set: {
+        bio: `Profile auto-updated from resume. ${personalInfo?.summary || ''}`,
+        skills: mergedSkills,
+        interests: mergedSkills.slice(0, 20)
+      }
     },
-    create: {
-      userId,
-      summary: `Profile auto-generated from resume. ${personalInfo?.summary || ''}`,
-      skills: mergedSkills,
-      tags: mergedSkills
-    }
-  });
+    { upsert: true, new: true }
+  );
 
   for (const raw of mergedSkills.slice(0, 50)) {
     const name = String(raw).trim();
     if (!name) continue;
     const normalized = name.toLowerCase().replace(/[^a-z0-9+.#]+/g, '-');
-    const skill = await prisma.skill.upsert({
-      where: { normalized },
-      update: { name },
-      create: { name, normalized, tags: [] }
-    });
-    await prisma.userSkill.upsert({
-      where: { userId_skillId: { userId, skillId: skill.id } },
-      update: { source: 'resume', confidence: processedData?.normalizedConfidence || 0.7 },
-      create: { userId, skillId: skill.id, source: 'resume', confidence: processedData?.normalizedConfidence || 0.7 }
-    });
+    const skill = await Skill.findOneAndUpdate(
+        { normalized },
+        { $set: { name }, $setOnInsert: { normalized, tags: [] } },
+        { upsert: true, new: true }
+    );
+    await UserSkill.findOneAndUpdate(
+        { userId, skillId: skill._id },
+        { $set: { source: 'resume', confidence: processedData?.normalizedConfidence || 0.7 } },
+        { upsert: true, new: true }
+    );
   }
 }
 
