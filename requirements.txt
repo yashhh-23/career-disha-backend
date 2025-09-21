@@ -1,0 +1,171 @@
+# ===============================================
+# CAREER DISHA BACKEND - REQUIREMENTS FILE
+# ===============================================
+# This file lists all the software requirements and dependencies needed to run the Career Disha backend
+
+## SYSTEM REQUIREMENTS
+Node.js >= 18.0.0
+npm >= 8.0.0
+PostgreSQL >= 13.0
+
+## REQUIRED DEPENDENCIES (from package.json)
+
+### Core Framework
+express@^5.1.0                     # Web framework for Node.js
+socket.io@^4.8.1                   # Real-time bidirectional event-based communication
+
+### Database & ORM
+@prisma/client@^6.15.0             # Prisma database client
+prisma@^6.15.0                     # Prisma CLI and migration tool
+pg@^8.16.3                         # PostgreSQL client for Node.js
+
+### Authentication & Security
+bcryptjs@^3.0.2                    # Password hashing library
+jsonwebtoken@^9.0.2                # JSON Web Token implementation
+helmet@^8.1.0                      # Security middleware for Express
+cors@^2.8.5                        # Cross-Origin Resource Sharing middleware
+express-rate-limit@^8.1.0          # Rate limiting middleware
+express-validator@^7.2.1           # Input validation middleware
+joi@^17.11.0                       # Object schema validation
+xss@^1.0.14                        # XSS sanitization
+
+### AI & Machine Learning Services
+@google/generative-ai@^0.24.1      # Google Gemini AI integration
+@huggingface/inference@^4.8.0      # HuggingFace AI models integration (optional fallback)
+
+### File Processing & Storage
+multer@^2.0.2                      # Multipart/form-data middleware for file uploads
+sharp@^0.34.3                      # High performance image processing
+pdf-parse@^1.1.1                   # PDF text extraction
+tesseract.js@^6.0.1               # OCR (Optical Character Recognition)
+aws-sdk@^2.1692.0                  # AWS SDK for cloud storage (optional)
+
+### HTTP Client & External APIs
+axios@^1.12.2                      # HTTP client for API requests
+
+### Utilities & Helpers
+dotenv@^17.2.1                     # Environment variable loader
+uuid@^9.0.1                        # UUID generator
+node-cron@^3.0.3                   # Task scheduling
+nodemailer@^6.9.7                  # Email sending utility
+
+### Documentation & API
+swagger-jsdoc@^6.2.8               # Swagger OpenAPI specification generator
+swagger-ui-express@^5.0.1          # Swagger UI middleware for Express
+
+### Authentication (Additional - optional)
+passport@^0.7.0                    # Authentication middleware (not used by default)
+
+### Logging & Monitoring
+winston@^3.17.0                    # Logging library
+winston-daily-rotate-file@^5.0.0   # Daily rotating file transport for Winston
+
+## DEVELOPMENT DEPENDENCIES
+
+### Development Tools
+nodemon@^3.1.10                    # Development server with auto-restart
+@types/node@^20.10.5               # TypeScript definitions for Node.js
+
+### Code Quality & Testing
+eslint@^8.56.0                     # JavaScript linting
+prettier@^3.1.1                    # Code formatting
+jest@^29.7.0                       # Testing framework
+supertest@^6.3.3                   # HTTP assertion library for testing
+
+## EXTERNAL SERVICES REQUIRED
+
+### AI Services
+- Google Gemini API Key (required)
+  Get from: https://makersuite.google.com/
+  
+- HuggingFace API Token (optional)
+  Get from: https://huggingface.co/settings/tokens
+
+### Database
+- PostgreSQL 13+ server running
+- Database: career_disha_db
+- User with full privileges on the database
+
+### Email Service (Optional)
+- SMTP server (e.g., Gmail SMTP)
+- App-specific password for email account
+
+### Cloud Storage (Optional)
+- AWS S3 bucket for file storage
+- AWS access key and secret key
+
+### External APIs (Optional for development)
+- Coursera API key
+- Udemy API key
+- EdX API key
+- Indeed API key
+- GitHub Jobs API key
+
+## ENVIRONMENT VARIABLES REQUIRED
+
+Essential variables (minimum for basic functionality):
+- DATABASE_URL
+- JWT_SECRET
+- JWT_REFRESH_SECRET
+- GEMINI_API_KEY
+
+Optional variables (for full functionality):
+- SMTP_HOST, SMTP_USER, SMTP_PASS
+- AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, S3_BUCKET_NAME
+- HUGGINGFACE_API_KEY
+- COURSERA_API_KEY, UDEMY_API_KEY, etc.
+
+## SYSTEM RESOURCES
+
+### Minimum System Requirements
+- RAM: 2 GB (4 GB recommended)
+- Storage: 5 GB free space
+- CPU: Dual-core processor
+- Network: Internet connection for AI services
+
+### Recommended System Requirements
+- RAM: 8 GB or more
+- Storage: 20 GB free space (SSD recommended)
+- CPU: Quad-core processor or better
+- Network: Stable broadband connection
+
+## PORT REQUIREMENTS
+
+Default ports used:
+- 3000: Main application server
+- 5432: PostgreSQL database
+- 5555: Prisma Studio (development only)
+
+Ensure these ports are available or configure alternatives in .env file.
+
+## INSTALLATION COMMAND
+
+To install all dependencies:
+```bash
+npm install
+```
+
+## VERIFICATION COMMANDS
+
+To verify installation:
+```bash
+node --version    # Should be >= 18.0.0
+npm --version     # Should be >= 8.0.0
+npm run health    # Should return server health status
+```
+
+## NOTES
+
+1. This project uses ES6+ JavaScript features requiring Node.js 18+
+2. Database migrations must be run before first startup
+3. AI features require valid API keys to function
+4. File upload features create local directories automatically
+5. Logging system creates log files automatically
+6. WebSocket features require socket.io client compatibility
+7. All security middleware is preconfigured for production use
+8. Rate limiting is enabled by default for all endpoints
+9. CORS is configured for local development - update for production
+10. Monitoring endpoints provide health checks and metrics
+
+For detailed setup instructions, see SETUP.md
+For usage instructions, see README.md

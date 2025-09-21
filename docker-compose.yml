@@ -1,0 +1,63 @@
+# Docker Compose for local development
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      target: development
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://postgres:password@db:5432/careerdisha_dev
+      - JWT_SECRET=dev-secret-key-change-in-production
+      - GOOGLE_AI_API_KEY=${GOOGLE_AI_API_KEY}
+      - COURSERA_API_KEY=${COURSERA_API_KEY}
+      - UDEMY_CLIENT_ID=${UDEMY_CLIENT_ID}
+      - UDEMY_CLIENT_SECRET=${UDEMY_CLIENT_SECRET}
+      - EDX_API_KEY=${EDX_API_KEY}
+      - SENTRY_DSN=${SENTRY_DSN}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - ./uploads:/app/uploads
+    depends_on:
+      - db
+      - redis
+    networks:
+      - app-network
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=careerdisha_dev
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  app-network:
+    driver: bridge

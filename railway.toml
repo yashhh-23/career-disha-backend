@@ -1,0 +1,26 @@
+# Railway deployment configuration
+[build]
+builder = "dockerfile"
+
+[deploy]
+startCommand = "npm start"
+healthcheckPath = "/api/health"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
+
+[env]
+NODE_ENV = "production"
+PORT = "3000"
+
+# Database will be provisioned separately
+# DATABASE_URL will be set by Railway
+
+# Required environment variables (set in Railway dashboard)
+# JWT_SECRET
+# GOOGLE_AI_API_KEY
+# COURSERA_API_KEY
+# UDEMY_CLIENT_ID
+# UDEMY_CLIENT_SECRET
+# EDX_API_KEY
+# SENTRY_DSN (optional)
+# SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS (optional)
