@@ -14,3 +14,19 @@
   timestamp: '2025-09-21 10:44:27',
   level: 'error'
 }
+{
+  event: 'ALERT_TRIGGERED',
+  alertType: 'HIGH_RESPONSE_TIME',
+  message: 'Security Event Response time 4126ms exceeded threshold 2000ms',
+  severity: 'high',
+  timestamp: '2025-09-21 16:30:39',
+  level: 'error'
+}
+{
+  event: 'ALERT_TRIGGERED',
+  alertType: 'HIGH_MEMORY_USAGE',
+  message: 'Security Event Memory usage 90.54% exceeded threshold',
+  severity: 'high',
+  timestamp: '2025-09-21 16:34:28',
+  level: 'error'
+}
