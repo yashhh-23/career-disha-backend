@@ -1,0 +1,16 @@
+{
+  event: 'ALERT_TRIGGERED',
+  alertType: 'HIGH_MEMORY_USAGE',
+  message: 'Security Event Memory usage 90.82% exceeded threshold',
+  severity: 'high',
+  timestamp: '2025-09-17 10:54:08',
+  level: 'error'
+}
+{
+  event: 'ALERT_TRIGGERED',
+  alertType: 'HIGH_MEMORY_USAGE',
+  message: 'Security Event Memory usage 94.17% exceeded threshold',
+  severity: 'high',
+  timestamp: '2025-09-17 11:40:42',
+  level: 'error'
+}

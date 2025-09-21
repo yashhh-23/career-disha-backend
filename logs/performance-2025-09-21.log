@@ -1,0 +1,1293 @@
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 300009,
+  memory: {
+    rss: 92741632,
+    heapUsed: 38591504,
+    heapTotal: 40525824,
+    external: 3678582,
+    system: {
+      total: 16849293312,
+      free: 2399617024,
+      used: 14449676288,
+      usage: 0.8575835211859596
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 3109000, system: 1484000 } },
+  process: { pid: 21844, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 00:00:31',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 600010,
+  memory: {
+    rss: 93294592,
+    heapUsed: 38313160,
+    heapTotal: 40787968,
+    external: 3834824,
+    system: {
+      total: 16849293312,
+      free: 2366947328,
+      used: 14482345984,
+      usage: 0.8595224568668248
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 3171000, system: 1500000 } },
+  process: { pid: 21844, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 00:05:31',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'resource_intensive_request',
+  value: 1151.114,
+  path: '/register',
+  method: 'POST',
+  memoryDelta: { rss: 2048000, heapUsed: 837952, heapTotal: 262144 },
+  statusCode: 500,
+  timestamp: '2025-09-21 00:08:55',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 300014,
+  memory: {
+    rss: 91926528,
+    heapUsed: 37243296,
+    heapTotal: 40001536,
+    external: 3678504,
+    system: {
+      total: 16849293312,
+      free: 1832554496,
+      used: 15016738816,
+      usage: 0.8912384951661526
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 7437000, system: 6015000 } },
+  process: { pid: 26816, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 00:13:26',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 600016,
+  memory: {
+    rss: 92139520,
+    heapUsed: 37381712,
+    heapTotal: 40263680,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 2148802560,
+      used: 14700490752,
+      usage: 0.8724692768883291
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 7453000, system: 6015000 } },
+  process: { pid: 26816, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 00:18:26',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 900017,
+  memory: {
+    rss: 94187520,
+    heapUsed: 38482808,
+    heapTotal: 41836544,
+    external: 3686814,
+    system: {
+      total: 16849293312,
+      free: 1885995008,
+      used: 14963298304,
+      usage: 0.8880668184073452
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 7609000, system: 6015000 } },
+  process: { pid: 26816, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 00:23:26',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 300008,
+  memory: {
+    rss: 88109056,
+    heapUsed: 36300056,
+    heapTotal: 38952960,
+    external: 3678464,
+    system: {
+      total: 16849293312,
+      free: 2807332864,
+      used: 14041960448,
+      usage: 0.8333857205749615
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6281000, system: 4281000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 00:30:50',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 300008,
+  memory: {
+    rss: 88190976,
+    heapUsed: 36284672,
+    heapTotal: 38952960,
+    external: 3678464,
+    system: {
+      total: 16849293312,
+      free: 2844262400,
+      used: 14005030912,
+      usage: 0.8311939647952874
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6875000, system: 4171000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 00:30:50',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 905722,
+  memory: {
+    rss: 88383488,
+    heapUsed: 36466968,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 2388029440,
+      used: 14461263872,
+      usage: 0.8582712404739696
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6296000, system: 4281000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 00:40:55',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 905388,
+  memory: {
+    rss: 88416256,
+    heapUsed: 36449432,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 2388017152,
+      used: 14461276160,
+      usage: 0.8582719697627161
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6875000, system: 4187000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 00:40:55',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 8090178,
+  memory: {
+    rss: 88616960,
+    heapUsed: 36532256,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 2798972928,
+      used: 14050320384,
+      usage: 0.833881880018874
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6875000, system: 4187000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 02:40:40',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 8090669,
+  memory: {
+    rss: 88522752,
+    heapUsed: 36550792,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 2624344064,
+      used: 14224949248,
+      usage: 0.8442460454925458
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6296000, system: 4281000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 02:40:40',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'performance_summary',
+  value: 'hourly',
+  requests: { total: 0, errorRate: 0, averageResponseTime: 0 },
+  ai: {
+    totalCalls: 0,
+    averageResponseTime: 0,
+    geminiCalls: 0,
+    fallbacks: 0
+  },
+  database: { totalQueries: 0, averageQueryTime: 0, slowQueries: 0 },
+  websocket: { activeConnections: 0, totalMessages: 0 },
+  timestamp: '2025-09-21 02:40:40',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'performance_summary',
+  value: 'hourly',
+  requests: { total: 0, errorRate: 0, averageResponseTime: 0 },
+  ai: {
+    totalCalls: 0,
+    averageResponseTime: 0,
+    geminiCalls: 0,
+    fallbacks: 0
+  },
+  database: { totalQueries: 0, averageQueryTime: 0, slowQueries: 0 },
+  websocket: { activeConnections: 0, totalMessages: 0 },
+  timestamp: '2025-09-21 02:40:40',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 29412640,
+  memory: {
+    rss: 88702976,
+    heapUsed: 36654448,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 2832687104,
+      used: 14016606208,
+      usage: 0.8318809547945508
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6312000, system: 4281000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 08:36:02',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 29412306,
+  memory: {
+    rss: 88760320,
+    heapUsed: 36636016,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 2833494016,
+      used: 14015799296,
+      usage: 0.8318330648335265
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6875000, system: 4187000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 08:36:02',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'performance_summary',
+  value: 'hourly',
+  requests: { total: 0, errorRate: 0, averageResponseTime: 0 },
+  ai: {
+    totalCalls: 0,
+    averageResponseTime: 0,
+    geminiCalls: 0,
+    fallbacks: 0
+  },
+  database: { totalQueries: 0, averageQueryTime: 0, slowQueries: 0 },
+  websocket: { activeConnections: 0, totalMessages: 0 },
+  timestamp: '2025-09-21 08:36:02',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'performance_summary',
+  value: 'hourly',
+  requests: { total: 0, errorRate: 0, averageResponseTime: 0 },
+  ai: {
+    totalCalls: 0,
+    averageResponseTime: 0,
+    geminiCalls: 0,
+    fallbacks: 0
+  },
+  database: { totalQueries: 0, averageQueryTime: 0, slowQueries: 0 },
+  websocket: { activeConnections: 0, totalMessages: 0 },
+  timestamp: '2025-09-21 08:36:02',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 30716618,
+  memory: {
+    rss: 88653824,
+    heapUsed: 36755480,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 2976120832,
+      used: 13873172480,
+      usage: 0.8233682103521566
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6312000, system: 4281000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 08:57:46',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 30716284,
+  memory: {
+    rss: 88424448,
+    heapUsed: 36736000,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 2976120832,
+      used: 13873172480,
+      usage: 0.8233682103521566
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6875000, system: 4187000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 08:57:46',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 31016284,
+  memory: {
+    rss: 88432640,
+    heapUsed: 36788632,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 3142991872,
+      used: 13706301440,
+      usage: 0.8134644691738155
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6875000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 09:02:46',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 31016618,
+  memory: {
+    rss: 88686592,
+    heapUsed: 36811344,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 3142987776,
+      used: 13706305536,
+      usage: 0.8134647122700643
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6312000, system: 4296000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 09:02:46',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 31316624,
+  memory: {
+    rss: 88723456,
+    heapUsed: 36860960,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 2998562816,
+      used: 13850730496,
+      usage: 0.8220362860046816
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6312000, system: 4296000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 09:07:46',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 31316290,
+  memory: {
+    rss: 88481792,
+    heapUsed: 36834456,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 2998538240,
+      used: 13850755072,
+      usage: 0.8220377445821747
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6875000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 09:07:46',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 31616639,
+  memory: {
+    rss: 80773120,
+    heapUsed: 36954216,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 2873360384,
+      used: 13975932928,
+      usage: 0.8294670090434235
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6312000, system: 4296000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 09:12:46',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 31616305,
+  memory: {
+    rss: 87932928,
+    heapUsed: 36924552,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 2873356288,
+      used: 13975937024,
+      usage: 0.8294672521396724
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6875000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 09:12:46',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 32625274,
+  memory: {
+    rss: 55193600,
+    heapUsed: 37013664,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 3479367680,
+      used: 13369925632,
+      usage: 0.79350067592912
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6312000, system: 4296000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 09:29:35',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 32624942,
+  memory: {
+    rss: 51511296,
+    heapUsed: 36981152,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 3479048192,
+      used: 13370245120,
+      usage: 0.7935196374365306
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6875000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 09:29:35',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 35064163,
+  memory: {
+    rss: 55246848,
+    heapUsed: 37057496,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 3278888960,
+      used: 13570404352,
+      usage: 0.8053990218293139
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6312000, system: 4296000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:10:14',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 35063829,
+  memory: {
+    rss: 51556352,
+    heapUsed: 37024840,
+    heapTotal: 38952960,
+    external: 3678544,
+    system: {
+      total: 16849293312,
+      free: 3278888960,
+      used: 13570404352,
+      usage: 0.8053990218293139
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6875000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:10:14',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'performance_summary',
+  value: 'hourly',
+  requests: { total: 0, errorRate: 0, averageResponseTime: 0 },
+  ai: {
+    totalCalls: 0,
+    averageResponseTime: 0,
+    geminiCalls: 0,
+    fallbacks: 0
+  },
+  database: { totalQueries: 0, averageQueryTime: 0, slowQueries: 0 },
+  websocket: { activeConnections: 0, totalMessages: 0 },
+  timestamp: '2025-09-21 10:10:14',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'performance_summary',
+  value: 'hourly',
+  requests: { total: 0, errorRate: 0, averageResponseTime: 0 },
+  ai: {
+    totalCalls: 0,
+    averageResponseTime: 0,
+    geminiCalls: 0,
+    fallbacks: 0
+  },
+  database: { totalQueries: 0, averageQueryTime: 0, slowQueries: 0 },
+  websocket: { activeConnections: 0, totalMessages: 0 },
+  timestamp: '2025-09-21 10:10:14',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 36216569,
+  memory: {
+    rss: 45916160,
+    heapUsed: 37111040,
+    heapTotal: 38952960,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 3670769664,
+      used: 13178523648,
+      usage: 0.782141031316388
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6875000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:29:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 36216903,
+  memory: {
+    rss: 50130944,
+    heapUsed: 37146504,
+    heapTotal: 38952960,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 3670769664,
+      used: 13178523648,
+      usage: 0.782141031316388
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6328000, system: 4296000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:29:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 36516570,
+  memory: {
+    rss: 45264896,
+    heapUsed: 37155696,
+    heapTotal: 38952960,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 2996695040,
+      used: 13852598272,
+      usage: 0.8221471378941593
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6875000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:34:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 36516904,
+  memory: {
+    rss: 46223360,
+    heapUsed: 37194728,
+    heapTotal: 38952960,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 2996695040,
+      used: 13852598272,
+      usage: 0.8221471378941593
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6328000, system: 4296000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:34:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 36816577,
+  memory: {
+    rss: 44843008,
+    heapUsed: 37200128,
+    heapTotal: 38952960,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 2692833280,
+      used: 14156460032,
+      usage: 0.8401812331154461
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6890000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:39:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 36816911,
+  memory: {
+    rss: 46235648,
+    heapUsed: 37243000,
+    heapTotal: 38952960,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 2692833280,
+      used: 14156460032,
+      usage: 0.8401812331154461
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6343000, system: 4296000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:39:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 37116918,
+  memory: {
+    rss: 46170112,
+    heapUsed: 37291936,
+    heapTotal: 38952960,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 1569300480,
+      used: 15279992832,
+      usage: 0.9068625341762939
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6343000, system: 4296000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:44:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 37116584,
+  memory: {
+    rss: 44740608,
+    heapUsed: 37245216,
+    heapTotal: 38952960,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 1569300480,
+      used: 15279992832,
+      usage: 0.9068625341762939
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6890000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:44:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 37416922,
+  memory: {
+    rss: 47345664,
+    heapUsed: 36573632,
+    heapTotal: 40001536,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 1191555072,
+      used: 15657738240,
+      usage: 0.929281599534422
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6359000, system: 4296000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:49:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 37416588,
+  memory: {
+    rss: 44589056,
+    heapUsed: 37314320,
+    heapTotal: 38952960,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 1191555072,
+      used: 15657738240,
+      usage: 0.929281599534422
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6890000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:49:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 37716929,
+  memory: {
+    rss: 47042560,
+    heapUsed: 36622032,
+    heapTotal: 40001536,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 1260425216,
+      used: 15588868096,
+      usage: 0.925194179206179
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6359000, system: 4312000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:54:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 37716596,
+  memory: {
+    rss: 44589056,
+    heapUsed: 36542928,
+    heapTotal: 40001536,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 1260425216,
+      used: 15588868096,
+      usage: 0.925194179206179
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6921000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:54:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 38016931,
+  memory: {
+    rss: 46133248,
+    heapUsed: 36671240,
+    heapTotal: 40001536,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 1736036352,
+      used: 15113256960,
+      usage: 0.8969668151741651
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6359000, system: 4312000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:59:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 38016597,
+  memory: {
+    rss: 44105728,
+    heapUsed: 36588280,
+    heapTotal: 40001536,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 1736036352,
+      used: 15113256960,
+      usage: 0.8969668151741651
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6921000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 10:59:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 38316609,
+  memory: {
+    rss: 43696128,
+    heapUsed: 36640816,
+    heapTotal: 40001536,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 2696331264,
+      used: 14152962048,
+      usage: 0.8399736289189242
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6921000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 11:04:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 38316943,
+  memory: {
+    rss: 45645824,
+    heapUsed: 36727592,
+    heapTotal: 40001536,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 2696458240,
+      used: 14152835072,
+      usage: 0.8399660929352097
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6359000, system: 4328000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 11:04:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 38616622,
+  memory: {
+    rss: 43311104,
+    heapUsed: 36685296,
+    heapTotal: 40001536,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 2892648448,
+      used: 13956644864,
+      usage: 0.8283222688075668
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6921000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 11:09:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 38616956,
+  memory: {
+    rss: 44371968,
+    heapUsed: 36775936,
+    heapTotal: 40001536,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 2892648448,
+      used: 13956644864,
+      usage: 0.8283222688075668
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6359000, system: 4328000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 11:09:27',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'performance_summary',
+  value: 'hourly',
+  requests: { total: 0, errorRate: 0, averageResponseTime: 0 },
+  ai: {
+    totalCalls: 0,
+    averageResponseTime: 0,
+    geminiCalls: 0,
+    fallbacks: 0
+  },
+  database: { totalQueries: 0, averageQueryTime: 0, slowQueries: 0 },
+  websocket: { activeConnections: 0, totalMessages: 0 },
+  timestamp: '2025-09-21 11:10:14',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'performance_summary',
+  value: 'hourly',
+  requests: { total: 0, errorRate: 0, averageResponseTime: 0 },
+  ai: {
+    totalCalls: 0,
+    averageResponseTime: 0,
+    geminiCalls: 0,
+    fallbacks: 0
+  },
+  database: { totalQueries: 0, averageQueryTime: 0, slowQueries: 0 },
+  websocket: { activeConnections: 0, totalMessages: 0 },
+  timestamp: '2025-09-21 11:10:14',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 41777065,
+  memory: {
+    rss: 43925504,
+    heapUsed: 36761800,
+    heapTotal: 40001536,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 3475279872,
+      used: 13374013440,
+      usage: 0.7937432859854769
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6921000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 12:02:07',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 41777400,
+  memory: {
+    rss: 45039616,
+    heapUsed: 36854072,
+    heapTotal: 40001536,
+    external: 3686736,
+    system: {
+      total: 16849293312,
+      free: 3475279872,
+      used: 13374013440,
+      usage: 0.7937432859854769
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6375000, system: 4328000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 12:02:07',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 42077402,
+  memory: {
+    rss: 45125632,
+    heapUsed: 36899808,
+    heapTotal: 40001536,
+    external: 3694928,
+    system: {
+      total: 16849293312,
+      free: 2692907008,
+      used: 14156386304,
+      usage: 0.8401768573829668
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6375000, system: 4328000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 12:07:07',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 42077068,
+  memory: {
+    rss: 44036096,
+    heapUsed: 36805432,
+    heapTotal: 40001536,
+    external: 3694928,
+    system: {
+      total: 16849293312,
+      free: 2692923392,
+      used: 14156369920,
+      usage: 0.8401758849979714
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6921000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 12:07:07',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'performance_summary',
+  value: 'hourly',
+  requests: { total: 0, errorRate: 0, averageResponseTime: 0 },
+  ai: {
+    totalCalls: 0,
+    averageResponseTime: 0,
+    geminiCalls: 0,
+    fallbacks: 0
+  },
+  database: { totalQueries: 0, averageQueryTime: 0, slowQueries: 0 },
+  websocket: { activeConnections: 0, totalMessages: 0 },
+  timestamp: '2025-09-21 13:01:35',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 45345328,
+  memory: {
+    rss: 44163072,
+    heapUsed: 36881576,
+    heapTotal: 40001536,
+    external: 3694928,
+    system: {
+      total: 16849293312,
+      free: 2857340928,
+      used: 13991952384,
+      usage: 0.8304177584726944
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6921000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 13:01:35',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'performance_summary',
+  value: 'hourly',
+  requests: { total: 0, errorRate: 0, averageResponseTime: 0 },
+  ai: {
+    totalCalls: 0,
+    averageResponseTime: 0,
+    geminiCalls: 0,
+    fallbacks: 0
+  },
+  database: { totalQueries: 0, averageQueryTime: 0, slowQueries: 0 },
+  websocket: { activeConnections: 0, totalMessages: 0 },
+  timestamp: '2025-09-21 13:01:35',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 45345848,
+  memory: {
+    rss: 45322240,
+    heapUsed: 36978416,
+    heapTotal: 40001536,
+    external: 3694928,
+    system: {
+      total: 16849293312,
+      free: 2758754304,
+      used: 14090539008,
+      usage: 0.8362688420863784
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6375000, system: 4328000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 13:01:35',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 45645339,
+  memory: {
+    rss: 44261376,
+    heapUsed: 36926496,
+    heapTotal: 40001536,
+    external: 3694928,
+    system: {
+      total: 16849293312,
+      free: 2713702400,
+      used: 14135590912,
+      usage: 0.8389426577275314
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6937000, system: 4203000 } },
+  process: { pid: 28972, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 13:06:35',
+  level: 'info',
+  message: 'Performance Metric'
+}
+{
+  metric: 'system_metrics',
+  value: 'hourly',
+  uptime: 45645863,
+  memory: {
+    rss: 43642880,
+    heapUsed: 37026720,
+    heapTotal: 40001536,
+    external: 3694928,
+    system: {
+      total: 16849293312,
+      free: 2695524352,
+      used: 14153768960,
+      usage: 0.8400215188799486
+    }
+  },
+  cpu: { loadAvg: [ 0, 0, 0 ], usage: { user: 6390000, system: 4328000 } },
+  process: { pid: 16668, version: 'v22.19.0', platform: 'win32', arch: 'x64' },
+  timestamp: '2025-09-21 13:06:36',
+  level: 'info',
+  message: 'Performance Metric'
+}

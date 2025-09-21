@@ -1,0 +1,953 @@
+{
+  error: Error: Cannot find module 'nodemailer'
+  Require stack:
+  - C:\Users\sunanda\career-disha-backend\src\api\notifications.js
+  - C:\Users\sunanda\career-disha-backend\src\server.js
+      at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+      at Function._load (node:internal/modules/cjs/loader:1192:37)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+      at Module.require (node:internal/modules/cjs/loader:1463:12)
+      at require (node:internal/modules/helpers:147:16)
+      at Object.<anonymous> (C:\Users\sunanda\career-disha-backend\src\api\notifications.js:5:20)
+      at Module._compile (node:internal/modules/cjs/loader:1706:14) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\api\\notifications.js',
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\server.js'
+    ]
+  },
+  level: 'error',
+  message: "uncaughtException: Cannot find module 'nodemailer'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\api\\notifications.js\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    "Error: Cannot find module 'nodemailer'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\api\\notifications.js\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    '    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1192:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1463:12)\n' +
+    '    at require (node:internal/modules/helpers:147:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\sunanda\\career-disha-backend\\src\\api\\notifications.js:5:20)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1706:14)',
+  stack: "Error: Cannot find module 'nodemailer'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\api\\notifications.js\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    '    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1192:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1463:12)\n' +
+    '    at require (node:internal/modules/helpers:147:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\sunanda\\career-disha-backend\\src\\api\\notifications.js:5:20)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1706:14)',
+  exception: true,
+  date: 'Wed Sep 17 2025 02:08:32 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 15180,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\sunanda\\career-disha-backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v22.19.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 83283968,
+      heapTotal: 58859520,
+      heapUsed: 26453480,
+      external: 2457227,
+      arrayBuffers: 18815
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 16863.734 },
+  trace: [
+    {
+      column: 15,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._resolveFilename',
+      line: 1383,
+      method: '_resolveFilename',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'defaultResolveImpl',
+      line: 1025,
+      method: null,
+      native: false
+    },
+    {
+      column: 22,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'resolveForCJSWithHooks',
+      line: 1030,
+      method: null,
+      native: false
+    },
+    {
+      column: 37,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._load',
+      line: 1192,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    },
+    {
+      column: 24,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'wrapModuleLoad',
+      line: 237,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.require',
+      line: 1463,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'node:internal/modules/helpers',
+      function: 'require',
+      line: 147,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\sunanda\\career-disha-backend\\src\\api\\notifications.js',
+      function: null,
+      line: 5,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._compile',
+      line: 1706,
+      method: '_compile',
+      native: false
+    }
+  ],
+  timestamp: '2025-09-17 02:08:32'
+}
+{
+  error: Error: Cannot find module '../middleware/auth'
+  Require stack:
+  - C:\Users\sunanda\career-disha-backend\src\routes\monitoring.js
+  - C:\Users\sunanda\career-disha-backend\src\server.js
+      at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+      at Function._load (node:internal/modules/cjs/loader:1192:37)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+      at Module.require (node:internal/modules/cjs/loader:1463:12)
+      at require (node:internal/modules/helpers:147:16)
+      at Object.<anonymous> (C:\Users\sunanda\career-disha-backend\src\routes\monitoring.js:4:44)
+      at Module._compile (node:internal/modules/cjs/loader:1706:14) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js',
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\server.js'
+    ]
+  },
+  level: 'error',
+  message: "uncaughtException: Cannot find module '../middleware/auth'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    "Error: Cannot find module '../middleware/auth'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    '    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1192:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1463:12)\n' +
+    '    at require (node:internal/modules/helpers:147:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js:4:44)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1706:14)',
+  stack: "Error: Cannot find module '../middleware/auth'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    '    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1192:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1463:12)\n' +
+    '    at require (node:internal/modules/helpers:147:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js:4:44)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1706:14)',
+  exception: true,
+  date: 'Wed Sep 17 2025 02:11:17 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 16240,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\sunanda\\career-disha-backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v22.19.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 90320896,
+      heapTotal: 59658240,
+      heapUsed: 35524288,
+      external: 3490816,
+      arrayBuffers: 67876
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 17027.89 },
+  trace: [
+    {
+      column: 15,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._resolveFilename',
+      line: 1383,
+      method: '_resolveFilename',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'defaultResolveImpl',
+      line: 1025,
+      method: null,
+      native: false
+    },
+    {
+      column: 22,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'resolveForCJSWithHooks',
+      line: 1030,
+      method: null,
+      native: false
+    },
+    {
+      column: 37,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._load',
+      line: 1192,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    },
+    {
+      column: 24,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'wrapModuleLoad',
+      line: 237,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.require',
+      line: 1463,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'node:internal/modules/helpers',
+      function: 'require',
+      line: 147,
+      method: null,
+      native: false
+    },
+    {
+      column: 44,
+      file: 'C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js',
+      function: null,
+      line: 4,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._compile',
+      line: 1706,
+      method: '_compile',
+      native: false
+    }
+  ],
+  timestamp: '2025-09-17 02:11:17'
+}
+{
+  error: Error: Cannot find module './middleware/monitoring'
+  Require stack:
+  - C:\Users\sunanda\career-disha-backend\src\server.js
+      at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+      at Function._load (node:internal/modules/cjs/loader:1192:37)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+      at Module.require (node:internal/modules/cjs/loader:1463:12)
+      at require (node:internal/modules/helpers:147:16)
+      at Object.<anonymous> (C:\Users\sunanda\career-disha-backend\src\server.js:32:5)
+      at Module._compile (node:internal/modules/cjs/loader:1706:14) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ 'C:\\Users\\sunanda\\career-disha-backend\\src\\server.js' ]
+  },
+  level: 'error',
+  message: "uncaughtException: Cannot find module './middleware/monitoring'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    "Error: Cannot find module './middleware/monitoring'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    '    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1192:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1463:12)\n' +
+    '    at require (node:internal/modules/helpers:147:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\sunanda\\career-disha-backend\\src\\server.js:32:5)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1706:14)',
+  stack: "Error: Cannot find module './middleware/monitoring'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    '    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1192:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1463:12)\n' +
+    '    at require (node:internal/modules/helpers:147:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\sunanda\\career-disha-backend\\src\\server.js:32:5)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1706:14)',
+  exception: true,
+  date: 'Wed Sep 17 2025 02:43:59 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 7696,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\sunanda\\career-disha-backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v22.19.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 72208384,
+      heapTotal: 36368384,
+      heapUsed: 24395344,
+      external: 2408449,
+      arrayBuffers: 18811
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 18989.937 },
+  trace: [
+    {
+      column: 15,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._resolveFilename',
+      line: 1383,
+      method: '_resolveFilename',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'defaultResolveImpl',
+      line: 1025,
+      method: null,
+      native: false
+    },
+    {
+      column: 22,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'resolveForCJSWithHooks',
+      line: 1030,
+      method: null,
+      native: false
+    },
+    {
+      column: 37,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._load',
+      line: 1192,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    },
+    {
+      column: 24,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'wrapModuleLoad',
+      line: 237,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.require',
+      line: 1463,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'node:internal/modules/helpers',
+      function: 'require',
+      line: 147,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'C:\\Users\\sunanda\\career-disha-backend\\src\\server.js',
+      function: null,
+      line: 32,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._compile',
+      line: 1706,
+      method: '_compile',
+      native: false
+    }
+  ],
+  timestamp: '2025-09-17 02:43:59'
+}
+{
+  error: Error: Cannot find module '../middleware/monitoring'
+  Require stack:
+  - C:\Users\sunanda\career-disha-backend\src\routes\monitoring.js
+  - C:\Users\sunanda\career-disha-backend\src\server.js
+      at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+      at Function._load (node:internal/modules/cjs/loader:1192:37)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+      at Module.require (node:internal/modules/cjs/loader:1463:12)
+      at require (node:internal/modules/helpers:147:16)
+      at Object.<anonymous> (C:\Users\sunanda\career-disha-backend\src\routes\monitoring.js:6:34)
+      at Module._compile (node:internal/modules/cjs/loader:1706:14) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js',
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\server.js'
+    ]
+  },
+  level: 'error',
+  message: "uncaughtException: Cannot find module '../middleware/monitoring'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    "Error: Cannot find module '../middleware/monitoring'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    '    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1192:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1463:12)\n' +
+    '    at require (node:internal/modules/helpers:147:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js:6:34)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1706:14)',
+  stack: "Error: Cannot find module '../middleware/monitoring'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    '    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1192:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1463:12)\n' +
+    '    at require (node:internal/modules/helpers:147:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js:6:34)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1706:14)',
+  exception: true,
+  date: 'Wed Sep 17 2025 02:45:54 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 2680,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\sunanda\\career-disha-backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v22.19.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 89194496,
+      heapTotal: 61231104,
+      heapUsed: 34241952,
+      external: 3490816,
+      arrayBuffers: 67876
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 19105.671 },
+  trace: [
+    {
+      column: 15,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._resolveFilename',
+      line: 1383,
+      method: '_resolveFilename',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'defaultResolveImpl',
+      line: 1025,
+      method: null,
+      native: false
+    },
+    {
+      column: 22,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'resolveForCJSWithHooks',
+      line: 1030,
+      method: null,
+      native: false
+    },
+    {
+      column: 37,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._load',
+      line: 1192,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    },
+    {
+      column: 24,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'wrapModuleLoad',
+      line: 237,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.require',
+      line: 1463,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'node:internal/modules/helpers',
+      function: 'require',
+      line: 147,
+      method: null,
+      native: false
+    },
+    {
+      column: 34,
+      file: 'C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js',
+      function: null,
+      line: 6,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._compile',
+      line: 1706,
+      method: '_compile',
+      native: false
+    }
+  ],
+  timestamp: '2025-09-17 02:45:54'
+}
+{
+  error: Error: Cannot find module '../middleware/monitoring'
+  Require stack:
+  - C:\Users\sunanda\career-disha-backend\src\routes\monitoring.js
+  - C:\Users\sunanda\career-disha-backend\src\server.js
+      at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+      at Function._load (node:internal/modules/cjs/loader:1192:37)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+      at Module.require (node:internal/modules/cjs/loader:1463:12)
+      at require (node:internal/modules/helpers:147:16)
+      at Object.<anonymous> (C:\Users\sunanda\career-disha-backend\src\routes\monitoring.js:6:34)
+      at Module._compile (node:internal/modules/cjs/loader:1706:14) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js',
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\server.js'
+    ]
+  },
+  level: 'error',
+  message: "uncaughtException: Cannot find module '../middleware/monitoring'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    "Error: Cannot find module '../middleware/monitoring'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    '    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1192:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1463:12)\n' +
+    '    at require (node:internal/modules/helpers:147:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js:6:34)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1706:14)',
+  stack: "Error: Cannot find module '../middleware/monitoring'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    '    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1192:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1463:12)\n' +
+    '    at require (node:internal/modules/helpers:147:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js:6:34)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1706:14)',
+  exception: true,
+  date: 'Wed Sep 17 2025 02:46:09 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 5944,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\sunanda\\career-disha-backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v22.19.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 88420352,
+      heapTotal: 60444672,
+      heapUsed: 33520360,
+      external: 3490816,
+      arrayBuffers: 67876
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 19120.531 },
+  trace: [
+    {
+      column: 15,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._resolveFilename',
+      line: 1383,
+      method: '_resolveFilename',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'defaultResolveImpl',
+      line: 1025,
+      method: null,
+      native: false
+    },
+    {
+      column: 22,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'resolveForCJSWithHooks',
+      line: 1030,
+      method: null,
+      native: false
+    },
+    {
+      column: 37,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._load',
+      line: 1192,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    },
+    {
+      column: 24,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'wrapModuleLoad',
+      line: 237,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.require',
+      line: 1463,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'node:internal/modules/helpers',
+      function: 'require',
+      line: 147,
+      method: null,
+      native: false
+    },
+    {
+      column: 34,
+      file: 'C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js',
+      function: null,
+      line: 6,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._compile',
+      line: 1706,
+      method: '_compile',
+      native: false
+    }
+  ],
+  timestamp: '2025-09-17 02:46:09'
+}
+{
+  error: Error: Cannot find module '../middleware/monitoring'
+  Require stack:
+  - C:\Users\sunanda\career-disha-backend\src\routes\monitoring.js
+  - C:\Users\sunanda\career-disha-backend\src\server.js
+      at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+      at Function._load (node:internal/modules/cjs/loader:1192:37)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+      at Module.require (node:internal/modules/cjs/loader:1463:12)
+      at require (node:internal/modules/helpers:147:16)
+      at Object.<anonymous> (C:\Users\sunanda\career-disha-backend\src\routes\monitoring.js:6:34)
+      at Module._compile (node:internal/modules/cjs/loader:1706:14) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js',
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\server.js'
+    ]
+  },
+  level: 'error',
+  message: "uncaughtException: Cannot find module '../middleware/monitoring'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    "Error: Cannot find module '../middleware/monitoring'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    '    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1192:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1463:12)\n' +
+    '    at require (node:internal/modules/helpers:147:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js:6:34)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1706:14)',
+  stack: "Error: Cannot find module '../middleware/monitoring'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js\n' +
+    '- C:\\Users\\sunanda\\career-disha-backend\\src\\server.js\n' +
+    '    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1192:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1463:12)\n' +
+    '    at require (node:internal/modules/helpers:147:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js:6:34)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1706:14)',
+  exception: true,
+  date: 'Wed Sep 17 2025 02:46:25 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 19260,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\sunanda\\career-disha-backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v22.19.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'C:\\Users\\sunanda\\career-disha-backend\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 88719360,
+      heapTotal: 61231104,
+      heapUsed: 34396384,
+      external: 3490816,
+      arrayBuffers: 67876
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 19136 },
+  trace: [
+    {
+      column: 15,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._resolveFilename',
+      line: 1383,
+      method: '_resolveFilename',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'defaultResolveImpl',
+      line: 1025,
+      method: null,
+      native: false
+    },
+    {
+      column: 22,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'resolveForCJSWithHooks',
+      line: 1030,
+      method: null,
+      native: false
+    },
+    {
+      column: 37,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._load',
+      line: 1192,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    },
+    {
+      column: 24,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'wrapModuleLoad',
+      line: 237,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.require',
+      line: 1463,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'node:internal/modules/helpers',
+      function: 'require',
+      line: 147,
+      method: null,
+      native: false
+    },
+    {
+      column: 34,
+      file: 'C:\\Users\\sunanda\\career-disha-backend\\src\\routes\\monitoring.js',
+      function: null,
+      line: 6,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._compile',
+      line: 1706,
+      method: '_compile',
+      native: false
+    }
+  ],
+  timestamp: '2025-09-17 02:46:25'
+}

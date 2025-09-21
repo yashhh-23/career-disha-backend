@@ -1,0 +1,108 @@
+{
+  method: 'GET',
+  url: '/',
+  ip: '::1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36',
+  userId: undefined,
+  statusCode: 404,
+  duration: 28,
+  timestamp: '2025-09-20 23:56:49',
+  level: 'http',
+  message: 'API Request'
+}
+{
+  method: 'GET',
+  url: '/api/docs',
+  ip: '::1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36',
+  userId: undefined,
+  statusCode: 301,
+  duration: 9,
+  timestamp: '2025-09-20 23:57:06',
+  level: 'http',
+  message: 'API Request'
+}
+{
+  method: 'GET',
+  url: '/api/docs/',
+  ip: '::1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36',
+  userId: undefined,
+  statusCode: 200,
+  duration: 12,
+  timestamp: '2025-09-20 23:57:06',
+  level: 'http',
+  message: 'API Request'
+}
+{
+  method: 'GET',
+  url: '/api/docs/swagger-ui-init.js',
+  ip: '::1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36',
+  userId: undefined,
+  statusCode: 200,
+  duration: 1,
+  timestamp: '2025-09-20 23:57:06',
+  level: 'http',
+  message: 'API Request'
+}
+{
+  method: 'GET',
+  url: '/api/docs/swagger-ui.css',
+  ip: '::1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36',
+  userId: undefined,
+  statusCode: 200,
+  duration: 91,
+  timestamp: '2025-09-20 23:57:07',
+  level: 'http',
+  message: 'API Request'
+}
+{
+  method: 'GET',
+  url: '/api/docs/swagger-ui-bundle.js',
+  ip: '::1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36',
+  userId: undefined,
+  statusCode: 200,
+  duration: 430,
+  timestamp: '2025-09-20 23:57:07',
+  level: 'http',
+  message: 'API Request'
+}
+{
+  method: 'GET',
+  url: '/api/docs/swagger-ui-standalone-preset.js',
+  ip: '::1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36',
+  userId: undefined,
+  statusCode: 200,
+  duration: 434,
+  timestamp: '2025-09-20 23:57:07',
+  level: 'http',
+  message: 'API Request'
+}
+{
+  method: 'GET',
+  url: '/api/docs/favicon-32x32.png',
+  ip: '::1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36',
+  userId: undefined,
+  statusCode: 200,
+  duration: 28,
+  timestamp: '2025-09-20 23:57:08',
+  level: 'http',
+  message: 'API Request'
+}
+{
+  method: 'POST',
+  url: '/api/v1/auth/register',
+  ip: '::1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36',
+  userId: undefined,
+  statusCode: 500,
+  duration: 440,
+  timestamp: '2025-09-20 23:58:00',
+  level: 'http',
+  message: 'API Request'
+}

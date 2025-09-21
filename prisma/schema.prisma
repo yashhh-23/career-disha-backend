@@ -1,0 +1,1123 @@
+// ===============================================
+// CAREER DISHA BACKEND - DATABASE SCHEMA
+// ===============================================
+// Comprehensive Prisma schema for Career Disha platform
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ===============================================
+// USER AUTHENTICATION & PROFILES
+// ===============================================
+
+model User {
+  id                String   @id @default(cuid())
+  email             String   @unique
+  passwordHash      String
+  name              String
+  role              UserRole @default(STUDENT)
+  emailVerified     Boolean  @default(false)
+  emailVerifiedAt   DateTime?
+  isActive          Boolean  @default(true)
+  lastLoginAt       DateTime?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relationships
+  profile           UserProfile?
+  refreshTokens     RefreshToken[]
+  passwordResets    PasswordReset[]
+  
+  // Student relationships
+  enrollments       Enrollment[]
+  lessonProgress    LessonProgress[]
+  interviewSessions InterviewSession[]
+  mentorshipRequests MentorshipRequest[] @relation("StudentRequests")
+  mentorshipSessions MentorshipSession[] @relation("StudentSessions")
+  notifications     Notification[]
+  achievements      Achievement[]
+  skillAssessments  SkillAssessment[]
+  careerPaths       CareerPath[]
+  reviews           Review[]
+  
+  // Mentor relationships
+  mentorProfile     MentorProfile?
+  mentorSessions    MentorshipSession[] @relation("MentorSessions")
+  mentorRequests    MentorshipRequest[] @relation("MentorRequests")
+  
+  // Admin relationships
+  createdCourses    Course[]
+  createdLessons    Lesson[]
+  systemLogs        SystemLog[]
+  uploads           FileUpload[] @relation("UserUploads")
+
+  @@map("users")
+}
+
+enum UserRole {
+  STUDENT
+  MENTOR
+  ADMIN
+  SUPER_ADMIN
+}
+
+model UserProfile {
+  id              String    @id @default(cuid())
+  userId          String    @unique
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  firstName       String?
+  lastName        String?
+  dateOfBirth     DateTime?
+  phone           String?
+  avatar          String?
+  bio             String?
+  location        String?
+  timezone        String?
+  linkedinUrl     String?
+  githubUrl       String?
+  portfolioUrl    String?
+  
+  // Career Information
+  currentJobTitle String?
+  company         String?
+  experience      ExperienceLevel?
+  industry        String?
+  careerGoals     String?
+  
+  // Skills and Interests
+  skills          String[]
+  interests       String[]
+  preferredLanguages String[]
+  
+  // Privacy Settings
+  isProfilePublic Boolean   @default(true)
+  showEmail       Boolean   @default(false)
+  showPhone       Boolean   @default(false)
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@map("user_profiles")
+}
+
+enum ExperienceLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  EXPERT
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@map("refresh_tokens")
+}
+
+model PasswordReset {
+  id        String   @id @default(cuid())
+  email     String
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@map("password_resets")
+}
+
+
+
+
+
+
+// ===============================================
+// MENTORSHIP SYSTEM
+// ===============================================
+
+model MentorProfile {
+  id                String   @id @default(cuid())
+  userId            String   @unique
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title             String
+  specialization    String[]
+  yearsOfExperience Int
+  hourlyRate        Float?
+  isAvailable       Boolean  @default(true)
+  maxStudents       Int      @default(5)
+  description       String
+  
+  // Statistics
+  totalSessions     Int      @default(0)
+  averageRating     Float    @default(0)
+  totalReviews      Int      @default(0)
+  
+  // Availability
+  availability      Json     // Store weekly schedule
+  
+  isVerified        Boolean  @default(false)
+  verifiedAt        DateTime?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("mentor_profiles")
+}
+
+model MentorshipRequest {
+  id          String                @id @default(cuid())
+  studentId   String
+  student     User                  @relation("StudentRequests", fields: [studentId], references: [id], onDelete: Cascade)
+  mentorId    String
+  mentor      User                  @relation("MentorRequests", fields: [mentorId], references: [id], onDelete: Cascade)
+  
+  subject     String
+  description String
+  preferredTime DateTime?
+  status      MentorshipRequestStatus @default(PENDING)
+  priority    RequestPriority       @default(MEDIUM)
+  
+  // Response
+  mentorResponse String?
+  respondedAt    DateTime?
+  
+  createdAt   DateTime              @default(now())
+  updatedAt   DateTime              @updatedAt
+  
+  // Convert to session if accepted
+  session     MentorshipSession?
+
+  @@map("mentorship_requests")
+}
+
+enum MentorshipRequestStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  CANCELLED
+  COMPLETED
+}
+
+enum RequestPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+model MentorshipSession {
+  id              String                  @id @default(cuid())
+  requestId       String?                 @unique
+  request         MentorshipRequest?      @relation(fields: [requestId], references: [id])
+  
+  studentId       String
+  student         User                    @relation("StudentSessions", fields: [studentId], references: [id], onDelete: Cascade)
+  mentorId        String
+  mentor          User                    @relation("MentorSessions", fields: [mentorId], references: [id], onDelete: Cascade)
+  
+  title           String
+  description     String?
+  scheduledAt     DateTime
+  duration        Int                     // in minutes
+  status          SessionStatus           @default(SCHEDULED)
+  sessionType     SessionType             @default(VIDEO_CALL)
+  
+  // Session Details
+  meetingUrl      String?
+  actualStartTime DateTime?
+  actualEndTime   DateTime?
+  notes           String?
+  
+  // Follow-up
+  mentorFeedback  String?
+  studentFeedback String?
+  rating          Int?                    // 1-5 stars
+  
+  // Resources shared
+  resources       SessionResource[]
+  
+  createdAt       DateTime                @default(now())
+  updatedAt       DateTime                @updatedAt
+
+  @@map("mentorship_sessions")
+}
+
+enum SessionStatus {
+  SCHEDULED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum SessionType {
+  VIDEO_CALL
+  PHONE_CALL
+  CHAT_ONLY
+  IN_PERSON
+}
+
+model SessionResource {
+  id        String            @id @default(cuid())
+  sessionId String
+  session   MentorshipSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  
+  title     String
+  url       String
+  type      ResourceType
+  
+  createdAt DateTime          @default(now())
+
+  @@map("session_resources")
+}
+
+enum ResourceType {
+  DOCUMENT
+  VIDEO
+  LINK
+  IMAGE
+  OTHER
+}
+
+// ===============================================
+// COURSE & LEARNING SYSTEM
+// ===============================================
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  icon        String?
+  color       String?
+  
+  // Hierarchy
+  parentId    String?
+  parent      Category? @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  children    Category[] @relation("CategoryHierarchy")
+  
+  // Relationships
+  courses     Course[]
+  
+  isActive    Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("categories")
+}
+
+model Course {
+  id              String     @id @default(cuid())
+  title           String
+  slug            String     @unique
+  description     String
+  shortDescription String?
+  thumbnail       String?
+  
+  // Content
+  objectives      String[]
+  prerequisites   String[]
+  targetAudience  String[]
+  
+  // Metadata
+  categoryId      String
+  category        Category   @relation(fields: [categoryId], references: [id])
+  createdById     String
+  createdBy       User       @relation(fields: [createdById], references: [id])
+  
+  level           CourseLevel @default(BEGINNER)
+  difficulty      Int        @default(1) // 1-10
+  estimatedHours  Int?
+  
+  // Status and Publishing
+  status          CourseStatus @default(DRAFT)
+  isPublished     Boolean    @default(false)
+  publishedAt     DateTime?
+  
+  // Pricing (for future premium features)
+  isPremium       Boolean    @default(false)
+  price           Float?
+  
+  // Statistics
+  enrollmentCount Int        @default(0)
+  completionRate  Float      @default(0)
+  averageRating   Float      @default(0)
+  totalReviews    Int        @default(0)
+  
+  // Relationships
+  lessons         Lesson[]
+  enrollments     Enrollment[]
+  reviews         Review[]
+  tags            CourseTag[]
+  
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  @@map("courses")
+}
+
+enum CourseLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  EXPERT
+}
+
+enum CourseStatus {
+  DRAFT
+  REVIEW
+  PUBLISHED
+  ARCHIVED
+}
+
+model Lesson {
+  id              String   @id @default(cuid())
+  courseId        String
+  course          Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  createdById     String
+  createdBy       User     @relation(fields: [createdById], references: [id])
+  
+  title           String
+  slug            String
+  description     String?
+  content         String   // Rich text content
+  
+  // Lesson Structure
+  chapterNumber   Int
+  lessonNumber    Int
+  duration        Int?     // in minutes
+  
+  // Content Types
+  videoUrl        String?
+  audioUrl        String?
+  documentUrl     String?
+  slides          Json?    // Slide data
+  
+  // Interactive Elements
+  quiz            Json?    // Quiz questions
+  assignments     Json?    // Assignments
+  resources       Json?    // Additional resources
+  
+  // Status
+  isPublished     Boolean  @default(false)
+  isPreview       Boolean  @default(false) // Can be accessed without enrollment
+  
+  // Relationships
+  progress        LessonProgress[]
+  
+  sortOrder       Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([courseId, slug])
+  @@map("lessons")
+}
+
+model Enrollment {
+  id              String           @id @default(cuid())
+  userId          String
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  courseId        String
+  course          Course           @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  
+  status          EnrollmentStatus @default(ACTIVE)
+  progress        Float            @default(0) // 0-100%
+  
+  enrolledAt      DateTime         @default(now())
+  startedAt       DateTime?
+  completedAt     DateTime?
+  lastAccessedAt  DateTime?
+  
+  // Certification
+  certificateUrl  String?
+  certificateIssuedAt DateTime?
+  
+  updatedAt       DateTime         @updatedAt
+
+  @@unique([userId, courseId])
+  @@map("enrollments")
+}
+
+enum EnrollmentStatus {
+  ACTIVE
+  COMPLETED
+  PAUSED
+  DROPPED
+}
+
+model LessonProgress {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lessonId        String
+  lesson          Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  
+  status          ProgressStatus @default(NOT_STARTED)
+  progressPercent Float    @default(0)
+  timeSpent       Int      @default(0) // in seconds
+  
+  // Interaction Data
+  watchTime       Int      @default(0) // for videos
+  quizScores      Json?    // Quiz attempt scores
+  notes           String?  // Student notes
+  
+  startedAt       DateTime?
+  completedAt     DateTime?
+  lastAccessedAt  DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([userId, lessonId])
+  @@map("lesson_progress")
+}
+
+enum ProgressStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+  SKIPPED
+}
+
+model CourseTag {
+  id       String @id @default(cuid())
+  name     String @unique
+  slug     String @unique
+  
+  courses  Course[]
+  
+  createdAt DateTime @default(now())
+
+  @@map("course_tags")
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  courseId  String
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  
+  rating    Int      // 1-5 stars
+  title     String?
+  comment   String?
+  
+  isPublished Boolean @default(true)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, courseId])
+  @@map("reviews")
+}
+
+// ===============================================
+// INTERVIEW PRACTICE SYSTEM
+// ===============================================
+
+model InterviewSession {
+  id                String              @id @default(cuid())
+  userId            String
+  user              User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title             String
+  jobRole           String
+  company           String?
+  difficulty        InterviewDifficulty @default(MEDIUM)
+  interviewType     InterviewType       @default(BEHAVIORAL)
+  
+  // Session Configuration
+  duration          Int                 // in minutes
+  questionCount     Int
+  
+  // AI Configuration
+  aiModel           String              @default("gemini")
+  customPrompt      String?
+  
+  // Session Data
+  questions         Json                // Array of questions
+  responses         Json                // Array of responses
+  feedback          Json                // AI feedback
+  
+  // Scoring
+  overallScore      Float?              // 0-100
+  skillScores       Json?               // Breakdown by skills
+  
+  // Status
+  status            InterviewSessionStatus @default(SCHEDULED)
+  startedAt         DateTime?
+  completedAt       DateTime?
+  
+  // Analysis Results
+  strengths         String[]
+  improvements      String[]
+  recommendations   String[]
+  
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+
+  @@map("interview_sessions")
+}
+
+enum InterviewDifficulty {
+  EASY
+  MEDIUM
+  HARD
+  EXPERT
+}
+
+enum InterviewType {
+  TECHNICAL
+  BEHAVIORAL
+  CASE_STUDY
+  SYSTEM_DESIGN
+  CODING
+  MIXED
+}
+
+enum InterviewSessionStatus {
+  SCHEDULED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+// ===============================================
+// SKILL ASSESSMENT SYSTEM
+// ===============================================
+
+model SkillAssessment {
+  id            String                @id @default(cuid())
+  userId        String
+  user          User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title         String
+  skillArea     String
+  description   String?
+  
+  // Assessment Configuration
+  questionCount Int
+  duration      Int                   // in minutes
+  difficulty    AssessmentDifficulty  @default(MEDIUM)
+  
+  // Questions and Responses
+  questions     Json                  // Array of questions
+  responses     Json?                 // User responses
+  
+  // Scoring
+  score         Float?                // 0-100
+  maxScore      Float                 @default(100)
+  passed        Boolean?
+  passingScore  Float                 @default(70)
+  
+  // Results
+  skillLevel    SkillLevel?
+  feedback      String?
+  recommendations String[]
+  
+  // Status
+  status        AssessmentStatus      @default(NOT_STARTED)
+  startedAt     DateTime?
+  completedAt   DateTime?
+  expiresAt     DateTime?
+  
+  createdAt     DateTime              @default(now())
+  updatedAt     DateTime              @updatedAt
+
+  @@map("skill_assessments")
+}
+
+enum AssessmentDifficulty {
+  BEGINNER
+  MEDIUM
+  ADVANCED
+  EXPERT
+}
+
+enum SkillLevel {
+  NOVICE
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  EXPERT
+}
+
+enum AssessmentStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+  EXPIRED
+  CANCELLED
+}
+
+// ===============================================
+// ACHIEVEMENT SYSTEM
+// ===============================================
+
+model Achievement {
+  id            String            @id @default(cuid())
+  userId        String
+  user          User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  type          AchievementType
+  title         String
+  description   String
+  icon          String?
+  badge         String?
+  
+  // Achievement Data
+  points        Int               @default(0)
+  level         Int               @default(1)
+  
+  // Progress Tracking
+  currentValue  Int               @default(0)
+  targetValue   Int
+  isCompleted   Boolean           @default(false)
+  
+  // Metadata
+  category      String?
+  rarity        AchievementRarity @default(COMMON)
+  
+  unlockedAt    DateTime?
+  createdAt     DateTime          @default(now())
+
+  @@map("achievements")
+}
+
+enum AchievementType {
+  COURSE_COMPLETION
+  LESSON_STREAK
+  SKILL_MASTERY
+  INTERVIEW_SUCCESS
+  MENTORSHIP_HOURS
+  COMMUNITY_PARTICIPATION
+  CUSTOM
+}
+
+enum AchievementRarity {
+  COMMON
+  UNCOMMON
+  RARE
+  EPIC
+  LEGENDARY
+}
+
+// ===============================================
+// CAREER PATH SYSTEM
+// ===============================================
+
+model CareerPath {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title           String
+  targetRole      String
+  currentRole     String?
+  industry        String
+  
+  // Timeline
+  estimatedMonths Int
+  startDate       DateTime @default(now())
+  targetDate      DateTime
+  
+  // Path Configuration
+  steps           Json     // Array of career steps
+  milestones      Json     // Key milestones
+  skills          Json     // Required skills mapping
+  
+  // Progress
+  currentStep     Int      @default(0)
+  completionRate  Float    @default(0)
+  
+  // AI Insights
+  recommendations Json?    // AI-generated recommendations
+  insights        Json?    // Market insights and trends
+  
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("career_paths")
+}
+
+// ===============================================
+// NOTIFICATION SYSTEM
+// ===============================================
+
+model Notification {
+  id          String             @id @default(cuid())
+  userId      String
+  user        User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  type        NotificationType
+  title       String
+  message     String
+  data        Json?              // Additional notification data
+  
+  // Status
+  isRead      Boolean            @default(false)
+  readAt      DateTime?
+  
+  // Delivery
+  channels    NotificationChannel[]
+  priority    NotificationPriority @default(MEDIUM)
+  
+  // Scheduling
+  scheduledAt DateTime?
+  sentAt      DateTime?
+  
+  // Metadata
+  category    String?
+  tags        String[]
+  
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+
+  @@map("notifications")
+}
+
+enum NotificationType {
+  SYSTEM
+  COURSE_REMINDER
+  MENTORSHIP_REQUEST
+  MENTORSHIP_SCHEDULED
+  INTERVIEW_REMINDER
+  ACHIEVEMENT_UNLOCKED
+  PROGRESS_UPDATE
+  ANNOUNCEMENT
+  MARKETING
+}
+
+enum NotificationChannel {
+  IN_APP
+  EMAIL
+  SMS
+  PUSH
+}
+
+enum NotificationPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+// ===============================================
+// ANALYTICS & REPORTING
+// ===============================================
+
+model Analytics {
+  id         String      @id @default(cuid())
+  type       AnalyticsType
+  userId     String?     // null for system-wide analytics
+  
+  // Metrics
+  metric     String      // e.g., "page_view", "course_completion", "session_duration"
+  value      Float
+  metadata   Json?       // Additional data
+  
+  // Dimensions
+  dimension1 String?     // e.g., course_id, session_type
+  dimension2 String?     // e.g., user_role, device_type
+  dimension3 String?     // e.g., referrer, campaign
+  
+  // Timestamps
+  timestamp  DateTime    @default(now())
+  date       DateTime    @default(now())
+  hour       Int
+  
+  createdAt  DateTime    @default(now())
+
+  @@index([type, date])
+  @@index([userId, type])
+  @@map("analytics")
+}
+
+enum AnalyticsType {
+  USER_ACTION
+  SYSTEM_METRIC
+  PERFORMANCE
+  BUSINESS
+}
+
+model SystemLog {
+  id          String    @id @default(cuid())
+  level       LogLevel
+  message     String
+  context     Json?     // Additional context data
+  
+  // Request Information
+  method      String?
+  url         String?
+  statusCode  Int?
+  responseTime Float?
+  userAgent   String?
+  ipAddress   String?
+  
+  // User Information
+  userId      String?
+  user        User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+  
+  // Error Information
+  error       String?
+  stack       String?
+  
+  // Metadata
+  service     String    @default("backend")
+  environment String    @default("development")
+  version     String?
+  
+  timestamp   DateTime  @default(now())
+
+  @@index([level, timestamp])
+  @@index([userId, timestamp])
+  @@map("system_logs")
+}
+
+enum LogLevel {
+  ERROR
+  WARN
+  INFO
+  DEBUG
+}
+
+// ===============================================
+// CONFIGURATION & SETTINGS
+// ===============================================
+
+model Setting {
+  id          String      @id @default(cuid())
+  key         String      @unique
+  value       String
+  type        SettingType @default(STRING)
+  description String?
+  category    String      @default("general")
+  
+  isPublic    Boolean     @default(false) // Can be accessed by frontend
+  isEditable  Boolean     @default(true)
+  
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@map("settings")
+}
+
+enum SettingType {
+  STRING
+  INTEGER
+  FLOAT
+  BOOLEAN
+  JSON
+}
+
+// ===============================================
+// FILE MANAGEMENT
+// ===============================================
+
+model FileUpload {
+  id          String     @id @default(cuid())
+  filename    String
+  originalName String
+  mimeType    String
+  size        Int        // in bytes
+  path        String
+  url         String?    // Public URL if available
+  
+  // Metadata
+  uploadedBy  String?    // User ID who uploaded
+  uploader    User?      @relation("UserUploads", fields: [uploadedBy], references: [id], onDelete: SetNull)
+  purpose     FileUsage
+  
+  // Status
+  isPublic    Boolean    @default(false)
+  isProcessed Boolean    @default(true)
+  
+  // Storage Information
+  storageProvider String @default("local") // local, s3, etc.
+  storageKey      String?
+  
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@map("file_uploads")
+}
+
+enum FileUsage {
+  PROFILE_AVATAR
+  COURSE_THUMBNAIL
+  LESSON_VIDEO
+  LESSON_DOCUMENT
+  CERTIFICATE
+  RESOURCE
+  OTHER
+}
+
+// ===============================================
+// LEGACY/API-ALIGNED MODELS (to match existing routes)
+// ===============================================
+
+model Profile {
+  id         String   @id @default(cuid())
+  userId     String   @unique
+  summary    String?
+  tags       String[]
+  skills     String[]
+  languages  String[]
+  interests  String[]
+  experience String?
+  education  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("profiles")
+}
+
+model Interview {
+  id           String   @id @default(cuid())
+  userId       String
+  status       String   @default("active")
+  currentStep  Int      @default(1)
+  responses    Json
+  profileTags  String[]
+  summary      String?
+  createdAt    DateTime @default(now())
+  completedAt  DateTime?
+
+  @@index([userId])
+  @@map("interviews")
+}
+
+model Upload {
+  id            Int      @id @default(autoincrement())
+  userId        String
+  filePath      String
+  status        String   @default("processing")
+  extractedData Json?
+  createdAt     DateTime @default(now())
+
+  @@index([userId])
+  @@map("uploads")
+}
+
+model MentorshipQuestion {
+  id         String   @id @default(cuid())
+  userId     String
+  question   String
+  category   String   @default("general")
+  priority   String   @default("normal")
+  status     String   @default("pending")
+  answer     String?
+  createdAt  DateTime @default(now())
+  answeredAt DateTime?
+
+  @@index([userId, status])
+  @@map("mentorship_questions")
+}
+
+model MentorshipMessage {
+  id          String   @id @default(cuid())
+  questionId  String
+  senderId    String
+  senderRole  String
+  message     String
+  messageType String   @default("text")
+  timestamp   DateTime @default(now())
+  readAt      DateTime?
+
+  @@index([questionId])
+  @@map("mentorship_messages")
+}
+
+model Progress {
+  id          String   @id @default(cuid())
+  userId      String
+  type        String
+  referenceId String
+  progress    Int      @default(0)
+  status      String   @default("in_progress")
+  metadata    Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([userId, type, referenceId], name: "userId_type_referenceId")
+  @@index([userId, type])
+  @@map("progress")
+}
+
+model Recommendation {
+  id          String   @id @default(cuid())
+  userId      String
+  type        String
+  title       String
+  description String?
+  priority    String   @default("medium")
+  metadata    Json?
+  createdAt   DateTime @default(now())
+
+  @@index([userId, type])
+  @@map("recommendations")
+}
+
+// ===============================================
+// SKILLS
+// ===============================================
+
+model Skill {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  normalized  String   @unique
+  category    String?  // technical | soft | domain
+  tags        String[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  userSkills  UserSkill[]
+
+  @@map("skills")
+}
+
+model UserSkill {
+  id          String   @id @default(cuid())
+  userId      String
+  skillId     String
+  skill       Skill    @relation(fields: [skillId], references: [id], onDelete: Cascade)
+  level       String?  // beginner | intermediate | advanced
+  source      String?  // interview | resume | manual
+  confidence  Float?   // 0-1
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([userId, skillId])
+  @@index([userId])
+  @@map("user_skills")
+}
+
+// ===============================================
+// NOTIFICATION PREFERENCES
+// ===============================================
+
+model NotificationPreference {
+  id            String   @id @default(cuid())
+  userId        String   @unique
+  inAppEnabled  Boolean  @default(true)
+  emailEnabled  Boolean  @default(false)
+  pushEnabled   Boolean  @default(false)
+  mutedTypes    String[]
+  quietHours    String?  // e.g., "22:00-07:00"
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("notification_preferences")
+}
