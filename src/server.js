@@ -48,6 +48,7 @@ const notificationsRoutes = require('./api/notifications');
 const externalRoutes = require('./api/external');
 const monitoringRoutes = require('./routes/monitoring');
 const accountRoutes = require('./api/account');
+const chatbotRoutes = require('./api/chatbot');
 const authMiddleware = require('./middlewares/auth');
 const { requireAnyRole } = require('./middlewares/roleAuth');
 
@@ -128,7 +129,8 @@ app.get('/', (req, res) => {
       auth: '/api/v1/auth',
       interview: '/api/v1/interview',
       recommendations: '/api/v1/recommendations',
-      uploads: '/api/v1/uploads'
+      uploads: '/api/v1/uploads',
+      chatbot: '/api/v1/chatbot'
     },
     timestamp: new Date().toISOString()
   });
@@ -157,6 +159,7 @@ app.use('/api/v1/constellation', authMiddleware, requireAnyRole(), constellation
 app.use('/api/v1/notifications', authMiddleware, requireAnyRole(), notificationsRoutes);
 app.use('/api/v1/external', rateLimitTrackingWrapper(rateLimiters.ai), authMiddleware, requireAnyRole(), externalRoutes);
 app.use('/api/v1/account', authMiddleware, requireAnyRole(), accountRoutes);
+app.use('/api/v1/chatbot', rateLimitTrackingWrapper(rateLimiters.ai), chatbotRoutes);
 
 // Monitoring routes
 app.use('/api/monitoring', monitoringRoutes);
