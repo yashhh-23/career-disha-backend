@@ -178,3 +178,27 @@
   level: 'http',
   message: 'API Request'
 }
+{
+  method: 'GET',
+  url: '/',
+  ip: '::1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36',
+  userId: undefined,
+  statusCode: 200,
+  duration: 59,
+  timestamp: '2025-09-21 15:53:58',
+  level: 'http',
+  message: 'API Request'
+}
+{
+  method: 'GET',
+  url: '/favicon.ico',
+  ip: '::1',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36',
+  userId: undefined,
+  statusCode: 404,
+  duration: 5,
+  timestamp: '2025-09-21 15:53:58',
+  level: 'http',
+  message: 'API Request'
+}
