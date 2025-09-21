@@ -31,11 +31,36 @@ yarn.lock
 # === LOGS ===
 logs/
 *.log
+*.log.gz
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
+
+# Winston log files and audit files
+*.audit.json
+.*.audit.json
+*-audit.json
+.*-audit.json
+
+# Specific backend log patterns
+access-*.log
+ai-service-*.log
+app-*.log
+combined-*.log
+database-*.log
+error-*.log
+exceptions-*.log
+http-requests-*.log
+performance-*.log
+rejections-*.log
+security-*.log
+
+# Compressed log files
+*.log.gz
+*.log.zip
+*.log.tar.gz
 
 # Runtime data
 pids
